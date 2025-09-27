@@ -1,18 +1,13 @@
-<?php
-$con = mysqli_connect("localhost", "root", "Magazin2024", "social");
+<?php  
+require 'config/config.php';
 
-if(mysqli_connect_errno()){
-    echo "Failed to connect: ".mysqli_connect_erno();
-}
-
-$query = mysqli_query($con, "INSERT INTO test VALUES(NULL, 'Reece')");
 ?>
 
 <html>
 <head>
-    <title>Swirlfeed</title>
+	<title>Welcome to Swirlfeed</title>
 </head>
 <body>
-HELLO!!!
+	Hello Reece!!!!!
 </body>
 </html>
