@@ -13,16 +13,37 @@ require 'includes/form_handlers/login_handler.php';
 	<script src="assets/js/register.js"></script>
 </head>
 <body>
+
+	<?php  
+
+	if(isset($_POST['register_button'])) {
+		echo '
+		<script>
+
+		$(document).ready(function() {
+			$("#first").hide();
+			$("#second").show();
+		});
+
+		</script>
+
+		';
+	}
+
+
+	?>
+
 	<div class="wrapper">
-		
+
 		<div class="login_box">
 
-			<div class = "login_header">
-				<h1> Swirlfeed! </h1>
-				Login or sign up below.
+			<div class="login_header">
+				<h1>Swirlfeed!</h1>
+				Login or sign up below!
 			</div>
-
+			<br>
 			<div id="first">
+
 				<form action="register.php" method="POST">
 					<input type="email" name="log_email" placeholder="Email Address" value="<?php 
 					if(isset($_SESSION['log_email'])) {
@@ -35,12 +56,14 @@ require 'includes/form_handlers/login_handler.php';
 					<?php if(in_array("Email or password was incorrect<br>", $error_array)) echo  "Email or password was incorrect<br>"; ?>
 					<input type="submit" name="login_button" value="Login">
 					<br>
-					<a href="#" id="signup" class="signup">Need an account? Register here!</a>
+					<a href="#" id="signup" class="signup">Need and account? Register here!</a>
 
-				</form>		
+				</form>
+
 			</div>
 
 			<div id="second">
+
 				<form action="register.php" method="POST">
 					<input type="text" name="reg_fname" placeholder="First Name" value="<?php 
 					if(isset($_SESSION['reg_fname'])) {
@@ -91,10 +114,11 @@ require 'includes/form_handlers/login_handler.php';
 					<input type="submit" name="register_button" value="Register">
 					<br>
 
-					<?php if(in_array("<span style='color: #14C800;'>You're all set! Goahead and login!</span><br>", $error_array)) echo "<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>"; ?>
-					<a href="#" id="signin" class="signin"> Already have an account? Sign in here!</a>
+					<?php if(in_array("<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>", $error_array)) echo "<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>"; ?>
+					<a href="#" id="signin" class="signin">Already have an account? Sign in here!</a>
 				</form>
 			</div>
+
 		</div>
 
 	</div>
